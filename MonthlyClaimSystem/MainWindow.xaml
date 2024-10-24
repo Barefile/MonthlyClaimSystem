@@ -1,0 +1,124 @@
+﻿<Window x:Class="ClaimSystem.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Monthly Claim System" Height="600" Width="800">
+    <Grid Background="#FFFFE0F0">
+        <TabControl>
+            <TabItem Header="Login" Name="LoginTab">
+                <Grid Background="#FFDDDD">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="79*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="99*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Username:"/>
+                        <TextBox Name="UsernameTextBox" Width="200"/>
+
+                        <Label Content="Password:" Margin="0,10,0,0"/>
+                        <PasswordBox Name="PasswordBox" Width="200"/>
+
+                        <Button Content="Login" Width="100" Margin="0,20,0,0" Click="LoginButton_Click"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Submit Claim" Name="ClaimTab">
+                <Grid Background="#FFE0E0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Width="400">
+                        <Label Content="Name:"/>
+                        <TextBox Name="NameTextBox"/>
+
+                        <Label Content="Surname:" Margin="0,10,0,0"/>
+                        <TextBox Name="SurnameTextBox"/>
+
+                        <Label Content="Campus:" Margin="0,10,0,0"/>
+                        <TextBox Name="CampusTextBox"/>
+
+                        <Label Content="Program:" Margin="0,10,0,0"/>
+                        <TextBox Name="ProgramTextBox"/>
+
+                        <Label Content="Module Title:" Margin="0,10,0,0"/>
+                        <TextBox Name="ModuleTitleTextBox"/>
+
+                        <Label Content="Email:" Margin="0,10,0,0"/>
+                        <TextBox Name="EmailTextBox"/>
+
+                        <Label Content="Month:" Margin="0,10,0,0"/>
+                        <ComboBox Name="MonthComboBox">
+                            <ComboBoxItem Content="January"/>
+                            <ComboBoxItem Content="February"/>
+                            <ComboBoxItem Content="March"/>
+                            <ComboBoxItem Content="April"/>
+                            <ComboBoxItem Content="May"/>
+                            <ComboBoxItem Content="June"/>
+                            <ComboBoxItem Content="July"/>
+                            <ComboBoxItem Content="August"/>
+                            <ComboBoxItem Content="September"/>
+                            <ComboBoxItem Content="October"/>
+                            <ComboBoxItem Content="November"/>
+                            <ComboBoxItem Content="December"/>
+                        </ComboBox>
+
+                        <Label Content="Supporting Documents:" Margin="0,10,0,0"/>
+                        <Button Content="Upload Documents" Width="150" Click="UploadDocumentsButton_Click"/>
+                        <TextBlock Name="UploadedFileTextBlock" Margin="0,5,0,0" />
+
+                        <Button Content="Submit Claim" Width="100" Margin="0,20,0,0" Click="SubmitClaimButton_Click"/>
+
+                        <ProgressBar Name="ClaimProgressBar" Height="20" Margin="0,10,0,0"/>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+
+            <TabItem Header="Verify Claims" Name="VerifyTab">
+                <Grid Background="#FFE0E0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <StackPanel Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Label Content="Claims Verification" FontSize="16"/>
+
+                        <ListBox Name="ClaimsListBox" Width="400">
+                            <!-- Example claim entries; in a real application, these would be populated dynamically -->
+                            <ListBoxItem Content="Claim 1 - Pending"/>
+                            <ListBoxItem Content="Claim 2 - Pending"/>
+                        </ListBox>
+
+                        <StackPanel Orientation="Horizontal" Margin="10">
+                            <Button Content="Approve" Width="100" Click="ApproveClaimButton_Click"/>
+                            <Button Content="Reject" Width="100" Click="RejectClaimButton_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
